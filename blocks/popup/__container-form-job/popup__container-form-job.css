@@ -1,0 +1,20 @@
+.popup__container-form-job {
+  width: 358px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  padding: 0;
+  margin: 1px 0 57px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  box-sizing: border-box;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .popup__container-form-job {
+    width: 238px;
+ }
+}

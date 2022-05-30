@@ -1,0 +1,10 @@
+.profile__info-mode {
+  display: flex;
+}
+
+@media screen and (max-width: 835px) {
+ .profile__info-mode {
+   justify-content: flex-end;
+   padding: 26px 6px 8px 0;
+ } 
+}
