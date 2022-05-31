@@ -1,15 +1,15 @@
 let mainContent = document.querySelector('.main-content');
 let popup = document.querySelector('.popup');
-let editButton = mainContent.querySelector('.profile__edit-button-label');
+let editButton = mainContent.querySelector('.profile__edit-button');
 let popupCloseIcon = document.querySelector('.popup__close-icon');
 // Находим форму в DOM
-let formElement = document.querySelector('.popup') // Воспользуйтесь методом querySelector()
+let formElement = document.querySelector('.popup__container') // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
 let nameInput = document.querySelector('.popup__container-form-name')// Воспользуйтесь инструментом .querySelector()
 let jobInput = document.querySelector('.popup__container-form-job')// Воспользуйтесь инструментом .querySelector()
 
 function popupOpen() {
-  popup.classList.add('popup_opened');
+  // popup.classList.add('popup_opened');
   popup.classList.remove('popup_close');
   let name = mainContent.querySelector('.profile__name');
   let job = mainContent.querySelector('.profile__job');
@@ -18,7 +18,7 @@ function popupOpen() {
 }
 
 function popupClose() {
-  popup.classList.remove('popup_opened');
+  // popup.classList.remove('popup_opened');
   popup.classList.add('popup_close');
 }
 
@@ -43,7 +43,8 @@ function formSubmitHandler(evt) {
   let job = mainContent.querySelector('.profile__job');
   // Вставьте новые значения с помощью textContent
   name.textContent = nameInput.value;
-  job.textContent = jobInput.value; 
+  job.textContent = jobInput.value;
+  popup.classList.remove('popup_opened');
   popup.classList.add('popup_close');
 }
 

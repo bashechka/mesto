@@ -8,21 +8,17 @@
   <title>Место</title>
 </head>
 <body class="page">
-  <form class="popup popup_opened popup_close">
-    <div class="popup-main">
-      <a href="#close" title="Close" class="popup__close-icon"></a>
-      <div class="popup__container">
-        <h3 class="popup__container-heading">Редактировать профиль</h3>
-        <fieldset class="popup__container-form">
-          <label for="form__item-name" class="popup__container-form-label-name"></label>
-          <input type="text" id="form__item-name" name="form__item-name" placeholder="Имя" class="popup__container-form-name" value="Жак-Ив Кусто" required>
-          <label for="form__item-job" class="popup__container-form-label-job"></label>
-          <input type="text" id="form__item-job" name="form__item-job" placeholder="О себе" class="popup__container-form-job" value="Исследователь океана" required>
-          <input type="submit" id="popup__container-save-button" value="Сохранить" class="popup__container-save-button">
-        </fieldset>
-      </div>
-    </div>
-  </form>
+  <div class="popup popup_close">
+    <button class="popup__close-icon"></button>
+      <form class="popup__container">
+       <h3 class="popup__container-heading">Редактировать профиль</h3>
+       <fieldset class="popup__container-form">
+         <input type="text" id="form__item-name" name="form__item-name" placeholder="Имя" class="popup__container-form-name" value="Жак-Ив Кусто" required>
+         <input type="text" id="form__item-job" name="form__item-job" placeholder="О себе" class="popup__container-form-job" value="Исследователь океана" required>
+         <button type="submit" class="popup__container-save-button">Сохранить</button>
+       </fieldset>
+      </form>
+  </div>
   <header class="header">
     <div class="logo"></div>
   </header>
@@ -32,14 +28,11 @@
       <div class="profile__info">
          <div class="profile__info-mode">
           <h2 class="profile__name">Жак-Ив Кусто</h2>
-          <label for="profile__edit-button" class="profile__edit-button-label">
-            <input type="button" name="profile__edit-button" id="profile__edit-button" class="profile__edit-button" value="">
-            <span class="profile__pseudo-edit-button"></span>
-           </label>
+          <button class="profile__edit-button"></button>
          </div>
         <p class="profile__job">Исследователь океана</p>
       </div>
-      <input type="button" name="profile__add-button" id="profile__add-button" class="profile__add-button" value="" disabled checked>
+      <button class="profile__add-button"></button>
     </section>
     <section class="photo">
       <ul class="photo__list">
@@ -47,60 +40,42 @@
           <img class="photo__list-image" src="./images/karachaevsk.jpg" alt="">
             <div class="photo__title">
               <h3 class="photo__list-title">Карачаевск</h3>
-              <label for="photo__like-button" class="photo__like-button-label">
-                <input type="button" name="photo__like-button" id="photo__like-button" class="photo__like-button" value="" disabled checked>
-                <span class="photo__pseudo-like-button"></span>
-              </label>
+              <button class="photo__like-button"></button>
             </div>
         </li>
         <li class="photo__list-item">
           <img class="photo__list-image" src="./images/elbrus.jpg" alt="">
           <div class="photo__title">
             <h3 class="photo__list-title">Гора Эльбрус</h3>
-            <label for="photo__like-button" class="photo__like-button-label">
-              <input type="button" name="photo__like-button" id="photo__like-button" class="photo__like-button" value="" disabled checked>
-              <span class="photo__pseudo-like-button photo__pseudo-like-button_active"></span>
-            </label>
+            <button class="photo__like-button"></button>
           </div>
         </li>
         <li class="photo__list-item">
           <img class="photo__list-image" src="./images/dombay.jpg" alt="">
           <div class="photo__title">
             <h3 class="photo__list-title">Домбай</h3>
-            <label for="photo__like-button" class="photo__like-button-label">
-              <input type="button" name="photo__like-button" id="photo__like-button" class="photo__like-button" value="" disabled checked>
-              <span class="photo__pseudo-like-button photo__pseudo-like-button_active"></span>
-            </label>
+            <button class="photo__like-button"></button>
           </div>
         </li>
         <li class="photo__list-item">
           <img class="photo__list-image" src="./images/elbrus_2.jpg" alt="">
           <div class="photo__title">
             <h3 class="photo__list-title">Гора Эльбрус</h3>
-            <label for="photo__like-button" class="photo__like-button-label">
-              <input type="button" name="photo__like-button" id="photo__like-button" class="photo__like-button" value="" disabled checked>
-              <span class="photo__pseudo-like-button photo__pseudo-like-button_active"></span>
-            </label>
+            <button class="photo__like-button"></button>
           </div>
         </li>
         <li class="photo__list-item">
           <img class="photo__list-image" src="./images/dombay_2.jpg" alt="">
           <div class="photo__title">
             <h3 class="photo__list-title">Домбай</h3>
-            <label for="photo__like-button" class="photo__like-button-label">
-              <input type="button" name="photo__like-button" id="photo__like-button" class="photo__like-button" value="" disabled checked>
-              <span class="photo__pseudo-like-button photo__pseudo-like-button_active"></span>
-            </label>
+            <button class="photo__like-button"></button>
           </div>
         </li>
         <li class="photo__list-item">
           <img class="photo__list-image" src="./images/karachaevo-ch.jpg" alt="">
           <div class="photo__title">
             <h3 class="photo__list-title">Карачаево-Чeркессия</h3>
-            <label for="photo__like-button" class="photo__like-button-label">
-              <input type="button" name="photo__like-button" id="photo__like-button" class="photo__like-button" value="" disabled checked>
-              <span class="photo__pseudo-like-button photo__pseudo-like-button_active"></span>
-            </label>
+            <button class="photo__like-button"></button>
           </div>
         </li> 
       </ul>

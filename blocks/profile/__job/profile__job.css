@@ -8,7 +8,6 @@
   color: white;
   margin: 0;
   padding: 0;
-  grid-area: status;
   align-self: center;
   text-overflow: ellipsis;
   white-space: nowrap;

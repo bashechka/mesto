@@ -1,10 +1,11 @@
 .logo {
-    background-image: url(../../images/Vector.svg);
-    width: 142px;
-    height: 33px;
-    background-size: cover;
-    margin: 0;
+  background-image: url(../../images/Vector.svg);
+  width: 142px;
+  height: 33px;
+  background-size: cover;
+  margin: 0;
 }
+
 .logo:hover {
   opacity: .7;
 }

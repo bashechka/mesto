@@ -1,18 +1,21 @@
 .popup {
-  position: relative;
-  width: 100%;
-  z-index: 1;
+  position: fixed;
+  display: flex;
+  flex-direction: row-reverse;
+  top: 156px;
+  left: 0;
+  right: 0;
+  justify-content: center;
 }
-
 .popup::before {
   position: fixed;
   width: 100%;
   height: 100%;
   background: #2A2C2F;
   opacity: .5;
-  z-index: 1;
+  z-index: -1;
   content: " ";
   top: 0;
   left: 0;
-}
+} 
 
