@@ -6,6 +6,16 @@
   left: 0;
   right: 0;
   justify-content: center;
+
+  /* position: fixed;
+  display: flex;
+  flex-direction: row-reverse;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 222px;
+  justify-content: center;
+  align-items: center; */
 }
 .popup::before {
   position: fixed;

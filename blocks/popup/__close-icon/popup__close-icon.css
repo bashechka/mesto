@@ -5,9 +5,22 @@
   z-index: 1;
   background-size: cover;
   border: 0;
-  background-color: black;
+  background-color: transparent;
   margin: 0px 0px 0 7px;
   padding: 0;
+
+  /* background-image: url(../../../images/Close-Icon.png);
+  width: 32px;
+  height: 32px;
+  z-index: 1;
+  background-size: cover;
+  border: 0;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 157px;
+  right: 376px; */
 }
 
 .popup__close-icon:hover {
