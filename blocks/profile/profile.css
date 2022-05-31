@@ -1,6 +1,6 @@
 .profile {
   width: 100%;
-  display: grid;    
+  display: grid;
   grid-template-columns: min-content 1fr 1fr;
   padding: 36.25px 0 0 0;
   gap: 0 18px;
@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 768px) {
   .profile {
-    grid-template-columns: 1fr;   
+    grid-template-columns: 1fr;
     grid-template-rows: repeat(4, min-content);
     justify-items: center;
     padding: 35px 0 0 0;
