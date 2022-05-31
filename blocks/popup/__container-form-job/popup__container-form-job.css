@@ -1,6 +1,6 @@
 .popup__container-form-job {
   width: 358px;
-  font-family: 'Inter';
+  font-family: inherit;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
