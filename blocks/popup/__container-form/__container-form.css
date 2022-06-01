@@ -1,0 +1,14 @@
+.popup__container-form {
+  width: 358px;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+@media screen and (max-width: 768px) {
+  .popup__container-form {
+    width: 238px;
+ }
+}

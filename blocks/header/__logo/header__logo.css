@@ -1,17 +1,17 @@
-.logo {
-  background-image: url(../../images/Vector.svg);
+.header__logo {
+  background-image: url(../../../images/Vector.svg);
   width: 142px;
   height: 33px;
   background-size: cover;
   margin: 0;
 }
 
-.logo:hover {
+.header__logo:hover {
   opacity: .7;
 }
 
 @media screen and (max-width: 425px) {
-  .logo {
+  .header__logo {
     width: 103.74px;
     height: 24.4px;
   }

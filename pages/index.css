@@ -1,22 +1,21 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/font/Inter-3.19/inter.css);
 
-@import url(../blocks/root/page.css);
+@import url(../blocks/page/page.css);
 
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_close/popup_close.css);
-@import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);
 @import url(../blocks/popup/__container/popup__container.css);
-@import url(../blocks/popup/__container-form/popup__container-form.css);
 @import url(../blocks/popup/__container-heading/popup__container-heading.css);
-@import url(../blocks/popup/__container-form/popup__container-form.css);
-@import url(../blocks/popup/__container-form-name/popup__container-form-name.css);
-@import url(../blocks/popup/__container-form-job/popup__container-form-job.css);
+@import url(../blocks/popup/__container-forms/popup__container-forms.css);
+@import url(../blocks/popup/__container-form/__container-form.css);
+@import url(../blocks/popup/__container-form/_type-name/popup__container-form_type_name.css);
+@import url(../blocks/popup/__container-form/_type_job/popup__container-form_type_job.css);
 @import url(../blocks/popup/__container-save-button/popup__container-save-button.css);
 
 @import url(../blocks/header/header.css);
-@import url(../blocks/logo/logo.css);
+@import url(../blocks/header/__logo/header__logo.css);
 
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
@@ -33,12 +32,12 @@
 @import url(../blocks/photo/__list/photo__list.css);
 @import url(../blocks/photo/__list-item/photo__list-item.css);
 @import url(../blocks/photo/__list-image/photo__list-image.css);
-@import url(../blocks/photo/__list-title/photo__list-title.css);
+@import url(../blocks/photo/__wrapper/photo__wrapper.css);
+@import url(../blocks/photo/__title/photo__title.css);
 @import url(../blocks/photo/__like-button/photo__like-button.css);
 @import url(../blocks/photo/__like-button_active/photo__like-button_active.css);
 
-@import url(../blocks/photo/__title/photo__title.css);
-
 
 @import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__text/footer__text.css);
 
