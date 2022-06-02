@@ -5,22 +5,18 @@ let popupCloseIcon = document.querySelector('.popup__close-icon');
 // Находим форму в DOM
 let formElement = document.querySelector('.popup__container') // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
-let nameInput = document.querySelector('.popup__container-form_type_name')// Воспользуйтесь инструментом .querySelector()
-let jobInput = document.querySelector('.popup__container-form_type_job')// Воспользуйтесь инструментом .querySelector()
+let nameInput = document.querySelector('.popup__container-input_type_name')// Воспользуйтесь инструментом .querySelector()
+let jobInput = document.querySelector('.popup__container-input_type_job')// Воспользуйтесь инструментом .querySelector()
 let name = mainContent.querySelector('.profile__name');
 let job = mainContent.querySelector('.profile__job');
 
 function popupOpen() {
-  // popup.classList.add('popup_opened');
   popup.classList.remove('popup_close');
-  // let name = mainContent.querySelector('.profile__name');
-  // let job = mainContent.querySelector('.profile__job');
   nameInput.value = name.textContent;
   jobInput.value = job.textContent;
 }
 
 function popupClose() {
-  // popup.classList.remove('popup_opened');
   popup.classList.add('popup_close');
 }
 
