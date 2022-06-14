@@ -1,6 +1,4 @@
 .photo__like-button {
-  display: inline-block;
-  vertical-align: middle;
   background-image: url(../../../images/like_buttone.svg);
   width: 22px;
   height: 19px;

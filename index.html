@@ -19,6 +19,26 @@
        </fieldset>
       </form>
   </div>
+  <div class="popup-add popup_close">
+    <form name="popup-add__container" class="popup-add__container">
+      <button type="button" class="popup-add__close-icon"></button>
+     <h2 class="popup-add__container-heading">Новое место</h2>
+     <fieldset class="popup-add__container-inputs">
+       <input type="text" id="form__item-plase" name="form__item-plase" placeholder="Название" class="popup-add__container-input popup-add__container-input_type_place" value="" required>
+       <input type="text" id="form__item-link" name="form__item-link" placeholder="Ссылка на картинку" class="popup-add__container-input popup-add__container-input_type_link" value="" required>
+       <button type="submit" class="popup-add__container-create-button">Создать</button>
+     </fieldset>
+    </form>
+</div>
+<div class="popup-photo popup_close">
+  <form name="popup-photo__container" class="popup-photo__container">
+    <button type="button" class="popup-photo__close-icon"></button>
+    <img class="popap-photo__picture" src="./images/karachaevsk.jpeg" alt="">
+    <p class="popup-photo__caption"></h2>
+    <!-- <fieldset class="popup-add__container-inputs">
+    </fieldset> -->
+  </form>
+</div>
   <header class="header">
     <div class="header__logo"></div>
   </header>
@@ -36,54 +56,22 @@
     </section>
     <section class="photo">
       <ul class="photo__list">
-        <li class="photo__list-item">
-          <img class="photo__list-image" src="./images/karachaevsk.jpeg" alt="Храм в горах на фоне леса">
-            <div class="photo__wrapper">
-              <h2 class="photo__title">Карачаевск</h2>
-              <button type="button" class="photo__like-button"></button>
-            </div>
-        </li>
-        <li class="photo__list-item">
-          <img class="photo__list-image" src="./images/elbrus.jpeg" alt="Эльбрус на закате">
-          <div class="photo__wrapper">
-            <h2 class="photo__title">Гора Эльбрус</h2>
-            <button type="button" class="photo__like-button"></button>
-          </div>
-        </li>
-        <li class="photo__list-item">
-          <img class="photo__list-image" src="./images/dombay.jpeg" alt="Лес на фоне скалистых гор.">
-          <div class="photo__wrapper">
-            <h2 class="photo__title">Домбай</h2>
-            <button type="button" class="photo__like-button"></button>
-          </div>
-        </li>
-        <li class="photo__list-item">
-          <img class="photo__list-image" src="./images/elbrus_2.jpeg" alt="Эльбрус на закате">
-          <div class="photo__wrapper">
-            <h2 class="photo__title">Гора Эльбрус</h2>
-            <button type="button" class="photo__like-button"></button>
-          </div>
-        </li>
-        <li class="photo__list-item">
-          <img class="photo__list-image" src="./images/dombay_2.jpeg" alt="Лес на фоне скалистых гор.">
-          <div class="photo__wrapper">
-            <h2 class="photo__title">Домбай</h2>
-            <button type="button" class="photo__like-button"></button>
-          </div>
-        </li>
-        <li class="photo__list-item">
-          <img class="photo__list-image" src="./images/karachaevo-ch.jpeg" alt="Храм в горах на фоне леса">
-          <div class="photo__wrapper">
-            <h2 class="photo__title">Карачаево-Чeркессия</h2>
-            <button type="button" class="photo__like-button"></button>
-          </div>
-        </li> 
-      </ul>
+      </ul> 
     </section>
   </main>
   <footer class="footer">
     <p class="footer__text">&copy; 2020 Mesto Russia</p>
   </footer>
+  <template id="photo__list-item">
+    <li class="photo__list-item">
+      <button type="button" class="photo__delete-button"></button>
+      <img class="photo__list-image" alt="Храм в горах на фоне леса">
+        <div class="photo__wrapper">
+          <h2 class="photo__title"></h2>
+          <button type="button" class="photo__like-button"></button>
+        </div>
+    </li>
+   </template> 
   <script src="./scripts/script.js"></script>
 </body>
 </html>

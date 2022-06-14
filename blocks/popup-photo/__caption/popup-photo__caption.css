@@ -1,0 +1,20 @@
+.popup-photo__caption {
+  width: 291px;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: white;
+  margin: 0;
+  padding: 34px 0 48px 36px;
+  align-self: flex-start;
+}
+
+/* @media screen and (max-width: 768px) {
+  .popup-add__container-heading {
+    font-size: 18px;
+    line-height: 22px;
+    padding: 26px 8px 0 20px;
+ }
+} */

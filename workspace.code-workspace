@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../russian-travel"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.tabSize": 2
+	}
+}

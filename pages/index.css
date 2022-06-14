@@ -2,9 +2,8 @@
 @import url(../vendor/font/Inter-3.19/inter.css);
 
 @import url(../blocks/page/page.css);
-
+@import url(../blocks/_close/popup_close.css);
 @import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/_close/popup_close.css);
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__container-heading/popup__container-heading.css);
@@ -13,6 +12,23 @@
 @import url(../blocks/popup/__container-input/_type/popup__container-form_type_name.css);
 @import url(../blocks/popup/__container-input/_type/popup__container-form_type_job.css);
 @import url(../blocks/popup/__container-save-button/popup__container-save-button.css);
+
+@import url(../blocks/popup-add/popup-add.css);
+@import url(../blocks/popup-add/__close-icon/popup-add__close-icon.css);
+@import url(../blocks/popup-add/__container-create-button/popup-add__container-create-button.css);
+@import url(../blocks/popup-add/__container-heading/popup-add__container-heading.css);
+@import url(../blocks/popup-add/__container-input/__container-input.css);
+@import url(../blocks/popup-add/__container-input/_type/popup-add__container-form_type_place.css);
+@import url(../blocks/popup-add/__container-input/_type/popup-add__container-form_type_link.css);
+@import url(../blocks/popup-add/__container-inputs/popup-add__container-inputs.css);
+@import url(../blocks/popup-add/__container/popup-add__container.css);
+
+
+@import url(../blocks/popup-photo/popup-photo.css);
+@import url(../blocks/popup-photo/__caption/popup-photo__caption.css);
+@import url(../blocks/popup-photo/__close-icon/popup-photo__close-icon.css);
+@import url(../blocks/popup-photo/__container/popup-photo__container.css);
+@import url(../blocks/popup-photo/__picture/popap-photo__picture.css);
 
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
@@ -34,7 +50,8 @@
 @import url(../blocks/photo/__title/photo__title.css);
 @import url(../blocks/photo/__like-button/photo__like-button.css);
 @import url(../blocks/photo/__like-button/_active/photo__like-button_active.css);
-
+@import url(../blocks/photo/__delete-button/photo__delete-button.css);
+@import url(../blocks/photo/__delete-button/_active/photo__delete-button_active.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__text/footer__text.css);
