@@ -9,6 +9,11 @@
   justify-content: center;
   align-items: center;
   z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  background-color:  rgba(0, 0, 0, 0.9);
+  opacity: 0.9;
 }
 
 .popup-add::before {

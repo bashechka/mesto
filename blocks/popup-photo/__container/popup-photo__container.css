@@ -2,18 +2,11 @@
   position: relative;
   margin: 0;
   z-index: 1;
-  max-width: 75vw;
-  max-height: 75vh;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* max-width: 75vw;
+  max-height: 75vh; */
 }
 
-/* 
-@media screen and (max-width: 768px) {
-  .popup-add__container {
-   width: 282px;
- }
-} */
 

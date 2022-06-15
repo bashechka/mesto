@@ -1,3 +1,4 @@
 .popap-photo__picture {
-    background-image: url(../../../images/karachaevsk.jpeg);
+  max-width: 75vw;
+  max-height: 75vh;
 }

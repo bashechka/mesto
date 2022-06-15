@@ -71,13 +71,13 @@ const addLinkInput = document.querySelector('.popup-add__container-input_type_li
 //открытие и закрытие попапа на изменение профайла
 
 function popupOpen() {
-  popup.classList.remove('popup_close');
+  popup.classList.add('popup_open');
   nameInput.value = name.textContent;
   jobInput.value = job.textContent;
 }
 
 function popupClose() {
-  popup.classList.add('popup_close');
+  popup.classList.remove('popup_open');
 }
 
 editButton.addEventListener('click', popupOpen);
@@ -91,23 +91,20 @@ function formSubmitHandler(evt) {
   // Вставьте новые значения с помощью textContent
   name.textContent = nameInput.value;
   job.textContent = jobInput.value;
-  popup.classList.add('popup_close');
+  popup.classList.remove('popup_open');
 }
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 formElement.addEventListener('submit', formSubmitHandler); 
 
-//включение и выключение попапа на добавление фото
-
+//открытие и закрытие попапа на добавление фото
 function popupAddOpen() {
-  popupAdd.classList.remove('popup_close');
-  // addPlaceInput.value = name.textContent;
-  // addLinkInput.value = job.textContent;
+  popupAdd.classList.add('popup_open');
 }
 
 function popupAddClose() {
-  popupAdd.classList.add('popup_close');
+  popupAdd.classList.remove('popup_open');
 }
 
 addButton.addEventListener('click', popupAddOpen);
@@ -115,7 +112,7 @@ popupAddCloseIcon.addEventListener('click', popupAddClose);
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 
-//добавление нововй карточки
+//добавление новой карточки
 
 function addFormSubmitHandler(evt) {
   evt.preventDefault(); 
@@ -132,28 +129,22 @@ function addFormSubmitHandler(evt) {
   const newTemplateItem = createTemplateItem(linkInput.value, placeInput.value);
   photoList.prepend(newTemplateItem);
 
-  popupAdd.classList.add('popup_close');
+  popupAdd.classList.remove('popup_open');
 }
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 addFormElement.addEventListener('submit', addFormSubmitHandler); 
 
-//добавление лайка
-
+//включение и выключение лайка
 const likeButtons = document.querySelectorAll('.photo__like-button');
 
-function addLike(evt) {
-  if (evt.target.classList.contains('photo__like-button_active')) {
-    evt.target.classList.remove('photo__like-button_active');
-  } 
-    else {
-      evt.target.classList.add('photo__like-button_active');
- }
+function activeLike(evt) {
+  evt.target.classList.toggle('photo__like-button_active');
 }
 
 likeButtons.forEach(function(element) {
-  element.addEventListener('click', addLike);
+  element.addEventListener('click', activeLike);
 });
 
 //удаление карточки
@@ -167,3 +158,31 @@ function deleteItem(evt) {
 deleteButtons.forEach(function(element) {
   element.addEventListener('click', deleteItem);
 });
+
+//попап с фото открытие и закрытие
+const popupPhoto = document.querySelector('.popup-photo')
+const imgList = document.querySelectorAll('.photo__list-image');
+const photoDeleteButton = document.querySelector('.popup-photo__close-icon');
+
+function popupImgOpen(evt) {
+  popupPhoto.classList.add('popup_open');
+  const src = evt.target.src;
+  const pic = document.querySelector('.popap-photo__picture');
+  pic.src = src;
+  const title = evt.target.nextElementSibling.querySelector('.photo__title');
+  let caption = document.querySelector('.popup-photo__caption');
+  caption.textContent = title.textContent;
+}
+
+function popupImgClose() {
+  popupPhoto.classList.remove('popup_open');
+}
+
+imgList.forEach(function(element) {
+  element.addEventListener('click', popupImgOpen);
+});
+
+photoDeleteButton.addEventListener('click', popupImgClose);
+
+
+

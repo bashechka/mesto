@@ -2,7 +2,6 @@
 @import url(../vendor/font/Inter-3.19/inter.css);
 
 @import url(../blocks/page/page.css);
-@import url(../blocks/_close/popup_close.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);
 @import url(../blocks/popup/__container/popup__container.css);
@@ -56,3 +55,4 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__text/footer__text.css);
 
+@import url(../blocks/popup/_open/popup_open.css);
