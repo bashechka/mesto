@@ -8,7 +8,7 @@
   <title>Место</title>
 </head>
 <body class="page">
-  <div class="popup">
+  <div class="popup popup_type_profile">
       <form name="popup__container" class="popup__container">
         <button type="button" class="popup__close-icon"></button>
        <h2 class="popup__container-heading">Редактировать профиль</h2>
@@ -19,24 +19,24 @@
        </fieldset>
       </form>
   </div>
-  <div class="popup-add">
-    <form name="popup-add__container" class="popup-add__container">
-      <button type="button" class="popup-add__close-icon"></button>
-     <h2 class="popup-add__container-heading">Новое место</h2>
-     <fieldset class="popup-add__container-inputs">
-       <input type="text" id="form__item-plase" name="form__item-plase" placeholder="Название" class="popup-add__container-input popup-add__container-input_type_place" value="" required>
-       <input type="text" id="form__item-link" name="form__item-link" placeholder="Ссылка на картинку" class="popup-add__container-input popup-add__container-input_type_link" value="" required>
-       <button type="submit" class="popup-add__container-create-button">Создать</button>
+  <div class="popup popup_type_add-pic">
+    <form name="popup__container" class="popup__container">
+      <button type="button" class="popup__close-icon"></button>
+     <h2 class="popup__container-heading">Новое место</h2>
+     <fieldset class="popup__container-inputs">
+       <input type="text" id="form__item-plase" name="form__item-plase" placeholder="Название" class="popup__container-input popup__container-input_type_place" value="" required>
+       <input type="text" id="form__item-link" name="form__item-link" placeholder="Ссылка на картинку" class="popup__container-input popup__container-input_type_link" value="" required>
+       <button type="submit" class="popup__container-create-button">Создать</button>
      </fieldset>
     </form>
 </div>
-<div class="popup-photo">
-  <form name="popup-photo__container" class="popup-photo__container">
-    <button type="button" class="popup-photo__close-icon"></button>
-    <img class="popup-photo__picture" src="./images/no_image.png" alt="Фотография местности">
-    <p class="popup-photo__caption"></p>
-  </form>
-</div> -->
+<div class="popup popup_type_open-pic">
+  <div name="popup__container" class="popup__container">
+    <button type="button" class="popup__close-icon"></button>
+    <img class="popup__photo" src="./images/no_image.png" alt="Фотография местности">
+    <p class="popup__photo-caption"></p>
+  </div>
+</div>
   <header class="header">
     <div class="header__logo"></div>
   </header>
@@ -70,6 +70,7 @@
         </div>
     </li>
    </template> 
+   <script src="./scripts/initial-сards.js"></script>
   <script src="./scripts/script.js"></script>
 </body>
 </html>

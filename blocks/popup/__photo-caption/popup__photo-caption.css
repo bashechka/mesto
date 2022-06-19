@@ -1,4 +1,4 @@
-.popup-photo__caption {
+.popup__photo-caption {
   width: 291px;
   font-family: inherit;
   font-style: normal;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .popup-photo__caption {
+  .popup__photo-caption {
     width: 240px;
  }
 } 
