@@ -24,6 +24,7 @@ const linkInput = popupAddPic.querySelector('.popup__container-input_type_link')
 const popupPhoto = document.querySelector('.popup_type_open-pic')
 const photoCloseButton = popupPhoto.querySelector('.popup__close-icon');
 const pic = document.querySelector('.popup__photo');
+const caption = document.querySelector('.popup__photo-caption');
 
 //создание карточки с загрузкой информации из массива + обработчики лайков и корзины удаления
 function createTemplateItem(imgValue, titleValue) {
@@ -33,6 +34,9 @@ function createTemplateItem(imgValue, titleValue) {
   // наполняем содержимым
   photoItem.querySelector('.photo__list-image').src = imgValue;
   photoItem.querySelector('.photo__title').textContent = titleValue;
+  //подтягиваем alt
+  photoItem.querySelector('.photo__list-image').alt = titleValue;
+
 
   //лайк
   const likeButton = photoItem.querySelector('.photo__like-button');
@@ -63,16 +67,16 @@ function activeLike(evt) {
 
 
 //универсальные функции закрытия и открытия попапа
-function popupOpen(popup) {
+function openPopup(popup) {
   popup.classList.add('popup_open');
 }
-function popupClose(popup) {
+function closePopup(popup) {
   popup.classList.remove('popup_open');
 }
 
 //открытие и закрытие попапа на изменение профайла
 function openPopupProfile() {
-  popupOpen(popupProfile);
+  openPopup(popupProfile);
   nameInput.value = profileNameElement.textContent;
   jobInput.value = profileJobElement.textContent;
 }
@@ -80,7 +84,7 @@ function openPopupProfile() {
 editButton.addEventListener('click', openPopupProfile);
 
 popupProfileCloseIcon.addEventListener('click', function() {
-  popupClose(popupProfile);
+  closePopup(popupProfile);
 });
 
 // Обработчик «отправки» формы, хотя пока
@@ -90,7 +94,7 @@ function handleProfileFormSubmit(evt) {
 
   profileNameElement.textContent = nameInput.value;
   profileJobElement.textContent = jobInput.value;
-  popupClose(popupProfile);
+  closePopup(popupProfile);
 }
 
 // Прикрепляем обработчик к форме:
@@ -99,10 +103,10 @@ profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 
 //открытие и закрытие попапа на добавление фото
 addPicButton.addEventListener('click', function() {
-  popupOpen(popupAddPic);
+  openPopup(popupAddPic);
 });
 popupAddPicCloseIcon.addEventListener('click', function() {
-  popupClose(popupAddPic);
+  closePopup(popupAddPic);
 });
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
@@ -113,7 +117,7 @@ function handlerAddPicFormSubmit(evt) {
   const newTemplateItem = createTemplateItem(linkInput.value, placeInput.value);
   photoList.prepend(newTemplateItem);
 
-  popupClose(popupAddPic);
+  closePopup(popupAddPic);
   evt.target.reset();
 }
 
@@ -123,19 +127,17 @@ addPicFormElement.addEventListener('submit', handlerAddPicFormSubmit);
 
 //попап с фото: открытие и закрытие
 function openPopupPhoto(evt) {
-  popupOpen(popupPhoto);
+  openPopup(popupPhoto);
   const src = evt.target.src;
-  const alt = evt.target.alt;
   pic.src = src;
   const title = evt.target.closest('.photo__list-item').querySelector('.photo__title');
-  const caption = document.querySelector('.popup__photo-caption');
   caption.textContent = title.textContent;
   pic.alt = title.textContent;
 }
 
 
 photoCloseButton.addEventListener('click', function(){
-  popupClose(popupPhoto);
+  closePopup(popupPhoto);
 });
 
 
