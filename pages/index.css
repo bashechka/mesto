@@ -22,7 +22,7 @@
 
 
 @import url(../blocks/popup/__container-input/__container-input_name-error/popup__container-input_name-error.css);
-@import url(../blocks/popup/__container-input/__container-input_job-error/popup__container-input_job-error.css);
+@import url(../blocks/popup/__container-input/popup__container-input_job-error.css);
 @import url(../blocks/popup/__container-input/__container-input_place-error/popup__container-input_place-error.css);
 @import url(../blocks/popup/__container-input/__container-input_link-error/popup__container-input_link-error.css);
 
