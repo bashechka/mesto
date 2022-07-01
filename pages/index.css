@@ -21,10 +21,10 @@
 @import url(../blocks/popup/_type/popup_type_open-pic.css);
 
 
-@import url(../blocks/form/__item-name-error/form__item-name-error.css);
-@import url(../blocks/form/__item-place-error/form__item-place-error.css);
-@import url(../blocks/form/__item-job-error/form__item-job-error.css);
-@import url(../blocks/form/__item-link-error/form__item-link-error.css);
+@import url(../blocks/popup/__container-input/__container-input_name-error/popup__container-input_name-error.css);
+@import url(../blocks/popup/__container-input/__container-input_job-error/popup__container-input_job-error.css);
+@import url(../blocks/popup/__container-input/__container-input_place-error/popup__container-input_place-error.css);
+@import url(../blocks/popup/__container-input/__container-input_link-error/popup__container-input_link-error.css);
 
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
