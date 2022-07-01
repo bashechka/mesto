@@ -1,11 +1,11 @@
-.popup__container-input_name-error {
+.popup__container-input_type_name-error {
   position: absolute;
   top: 140px;
   left: 34px;
 }
 
 @media screen and (max-width: 768px) {
-    .popup__container-input_name-error {
+    .popup__container-input_type_name-error {
       top: 151px;
       left: 21px;
   }
