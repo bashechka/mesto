@@ -17,8 +17,15 @@
  }
 }
 
-
 .popup_type_add-pic .popup__container-heading {
   padding: 34px 0 48px 36px;
   align-self: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+  .popup_type_add-pic .popup__container-heading {
+    font-size: 18px;
+    line-height: 22px;
+    padding: 26px 0px 0px 25px;
+  }
 }

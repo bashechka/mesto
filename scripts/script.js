@@ -64,15 +64,39 @@ initialCards.forEach(function(item) {
 function activeLike(evt) {
   evt.target.classList.toggle('photo__like-button_active');
 }
+//функция закрытия попапа при нажатии Esc
 
+function closePopupEsc(evt) {
+  if (evt.key === "Escape") {
+    const popups = document.querySelectorAll('.popup');
+    popups.forEach((popup) => {
+      if (popup.classList.contains('popup_open')) {
+        closePopup(popup);
+      }
+    });
+  }
+}
 
 //универсальные функции закрытия и открытия попапа
 function openPopup(popup) {
   popup.classList.add('popup_open');
+  document.addEventListener('keydown', closePopupEsc);
 }
+
 function closePopup(popup) {
   popup.classList.remove('popup_open');
+  document.removeEventListener('keydown', closePopupEsc);
 }
+
+//функция закрытия попапа при клике на оверлей
+ function closePopupOverlay(popup) {
+   popup.addEventListener('click', function(e) {
+     if (e.target === e.currentTarget) {
+      closePopup(popup);
+     }
+   });
+ }
+
 
 //открытие и закрытие попапа на изменение профайла
 function openPopupProfile() {
@@ -83,6 +107,7 @@ function openPopupProfile() {
 
 editButton.addEventListener('click', openPopupProfile);
 
+closePopupOverlay(popupProfile);
 popupProfileCloseIcon.addEventListener('click', function() {
   closePopup(popupProfile);
 });
@@ -105,6 +130,9 @@ profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 addPicButton.addEventListener('click', function() {
   openPopup(popupAddPic);
 });
+
+closePopupOverlay(popupAddPic);
+
 popupAddPicCloseIcon.addEventListener('click', function() {
   closePopup(popupAddPic);
 });
@@ -135,10 +163,9 @@ function openPopupPhoto(evt) {
   pic.alt = title.textContent;
 }
 
+closePopupOverlay(popupPhoto);
 
 photoCloseButton.addEventListener('click', function(){
   closePopup(popupPhoto);
 });
-
-
 
