@@ -5,26 +5,28 @@
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);
 @import url(../blocks/popup/__container/popup__container.css);
+
+@import url(../blocks/popup/__container/__container_name-error/popup__container_name-error.css);
+@import url(../blocks/popup/__container/__container_job-error/popup__container_job-error.css);
+@import url(../blocks/popup/__container/__container_place-error/popup__container_place-error.css);
+@import url(../blocks/popup/__container/__container_link-error/popup__container_link-error.css);
+
 @import url(../blocks/popup/__container-heading/popup__container-heading.css);
 @import url(../blocks/popup/__container-inputs/popup__container-inputs.css);
 @import url(../blocks/popup/__container-input/__container-input.css);
+
 @import url(../blocks/popup/__container-input/_type/popup__container-input_type_job.css);
 @import url(../blocks/popup/__container-input/_type/popup__container-input_type_name.css);
 @import url(../blocks/popup/__container-input/_type/popup__container-input_type_link.css);
 @import url(../blocks/popup/__container-input/_type/popup__container-input_type_place.css);
 @import url(../blocks/popup/__container-input/_type/popup__container-input_type_error.css);
+
 @import url(../blocks/popup/__container-input/__container-input_error-active.css);
 @import url(../blocks/popup/__container-save-button/popup__container-save-button.css);
 @import url(../blocks/popup/__container-create-button/popup__container-create-button.css);
 @import url(../blocks/popup/__photo-caption/popup__photo-caption.css);
 @import url(../blocks/popup/__photo/popup__photo.css);
 @import url(../blocks/popup/_type/popup_type_open-pic.css);
-
-
-@import url(../blocks/popup/__container-input/_type/popup__container-input_type_name-error.css);
-@import url(../blocks/popup/__container-input/popup__container-input_job-error.css);
-@import url(../blocks/popup/__container-input/__container-input_place-error/popup__container-input_place-error.css);
-@import url(../blocks/popup/__container-input/__container-input_link-error/popup__container-input_link-error.css);
 
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
