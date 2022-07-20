@@ -6,7 +6,7 @@ export default class Card {
     this._openPopup = openPopup;
   }
 
-   // клонируем содержимое тега template
+   //клонируем содержимое тега template
   _createTemplateItem() {
     const photoItem = document.querySelector('#photo__list-item').content.querySelector('.photo__list-item').cloneNode(true);
     return photoItem;
@@ -15,7 +15,7 @@ export default class Card {
   _generateCard() {
     this._element = this._createTemplateItem();
     this._setEventlisteners();
-    // наполняем содержимым
+    //наполняем содержимым
     this._element.querySelector('.photo__list-image').src = this._link;
     this._element.querySelector('.photo__title').textContent = this._name;
     //подтягиваем alt
@@ -51,9 +51,7 @@ export default class Card {
 
   //попап с фото: открытие и закрытие
   _openPopupPhoto = (evt) => {
-    //попап с фото: открытие и закрытие
-  const popupPhoto = document.querySelector('.popup_type_open-pic');
-   //const photoCloseButton = popupPhoto.querySelector('.popup__close-icon');
+    const popupPhoto = document.querySelector('.popup_type_open-pic');
     const pic = document.querySelector('.popup__photo');
     const caption = document.querySelector('.popup__photo-caption');
     this._openPopup(popupPhoto);

@@ -3,7 +3,7 @@ const mainContent = document.querySelector('.main-content');
 //const photoItemTemplate = document.querySelector('#photo__list-item').content;
 const photoList = document.querySelector('.photo__list');
 const popups = document.querySelectorAll('.popup');
-// popup_type_profile
+//popup_type_profile
 const popupProfile = document.querySelector('.popup_type_profile');
 const editButton = mainContent.querySelector('.profile__edit-button');
 //const popupProfileCloseIcon = popupProfile.querySelector('.popup__close-icon');
@@ -13,7 +13,7 @@ const jobInput = popupProfile.querySelector('.popup__container-input_type_job');
 const profileNameElement = mainContent.querySelector('.profile__name');
 const profileJobElement = mainContent.querySelector('.profile__job');
 
-// popup_type_add-pic
+//popup_type_add-pic
 const popupAddPic = document.querySelector('.popup_type_add-pic');
 const addPicFormElement = popupAddPic.querySelector('.popup__container');
 const addPicButton = document.querySelector('.profile__add-button');
@@ -90,7 +90,7 @@ addPicButton.addEventListener('click', function() {
 //добавление новой карточки
 function handlerAddPicFormSubmit(evt) {
   evt.preventDefault(); 
-  const newTemplateItem = new Card(placeInput.value, linkInput.value);
+  const newTemplateItem = new Card(placeInput.value, linkInput.value, openPopup);
   const newTemplateItemElement = newTemplateItem._generateCard();
   photoList.prepend(newTemplateItemElement);
 
