@@ -1,7 +1,10 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/font/Inter-3.19/inter.css);
 
+
+
 @import url(../blocks/page/page.css);
+@import url(../blocks/main-contant/main-contant.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);
 @import url(../blocks/popup/__container/popup__container.css);

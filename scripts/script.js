@@ -1,5 +1,8 @@
-const mainContent = document.querySelector('.main-content');
+import {initialCards} from './initial-cards.js';
+import FormValidator from './FormValidator.js';
+import Card from './Card.js';
 
+const mainContent = document.querySelector('.main-content');
 //const photoItemTemplate = document.querySelector('#photo__list-item').content;
 const photoList = document.querySelector('.photo__list');
 const popups = document.querySelectorAll('.popup');
@@ -12,11 +15,10 @@ const nameInput = popupProfile.querySelector('.popup__container-input_type_name'
 const jobInput = popupProfile.querySelector('.popup__container-input_type_job');
 const profileNameElement = mainContent.querySelector('.profile__name');
 const profileJobElement = mainContent.querySelector('.profile__job');
-
 //popup_type_add-pic
 const popupAddPic = document.querySelector('.popup_type_add-pic');
 const addPicFormElement = popupAddPic.querySelector('.popup__container');
-const addPicButton = document.querySelector('.profile__add-button');
+//const addPicButton = document.querySelector('.profile__add-button');
 //const popupAddPicCloseIcon = popupAddPic.querySelector('.popup__close-icon');
 const placeInput = popupAddPic.querySelector('.popup__container-input_type_place');
 const linkInput = popupAddPic.querySelector('.popup__container-input_type_link');
@@ -46,12 +48,16 @@ function closePopup(popup) {
 
 popups.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
-    if (evt.target.classList.contains('popup_open')) {
-    closePopup(popup);
-    }
-    if (evt.target.classList.contains('popup__close-icon')) {
-    closePopup(popup);
-    }
+    if (evt.target.classList.contains('popup__close-icon') 
+    || evt.target.classList.contains('popup_open')) {
+      closePopup(popup);
+ }
+    // if (evt.target.classList.contains('popup_open')) {
+    // closePopup(popup);
+    // }
+    // if (evt.target.classList.contains('popup__close-icon')) {
+    // closePopup(popup);
+    // }
   });
 });
 
@@ -78,22 +84,23 @@ function handleProfileFormSubmit(evt) {
 // он будет следить за событием “submit” - «отправка»
 profileFormElement.addEventListener('submit', handleProfileFormSubmit); 
 
-//открытие и закрытие попапа на добавление фото
-addPicButton.addEventListener('click', function() {
-  const buttonElement = popupAddPic.querySelector('.popup__button');
-  buttonElement.classList.add('popup__button_inactive');
-  buttonElement.disabled = true;
-  openPopup(popupAddPic);
+//универсальная функция по созданию новой карточки
+function initialCard(name, link) {
+  const card = new Card(name, link, openPopup);
+  return card._generateCard();
+}
+
+//создание новой карточки
+initialCards.forEach(function(item) {
+  const cardElement = initialCard(item.name, item.link);
+  photoList.append(cardElement); 
 });
 
-
-//добавление новой карточки
+//добавление новой карточки через форму
 function handlerAddPicFormSubmit(evt) {
   evt.preventDefault(); 
-  const newTemplateItem = new Card(placeInput.value, linkInput.value, openPopup);
-  const newTemplateItemElement = newTemplateItem._generateCard();
+  const newTemplateItemElement = initialCard(placeInput.value, linkInput.value);
   photoList.prepend(newTemplateItemElement);
-
   closePopup(popupAddPic);
   evt.target.reset();
 }
@@ -102,18 +109,10 @@ function handlerAddPicFormSubmit(evt) {
 // он будет следить за событием “submit” - «отправка»
 addPicFormElement.addEventListener('submit', handlerAddPicFormSubmit); 
 
-initialCards.forEach(function(item) {
-  const card = new Card(item.name, item.link, openPopup);
-  const cardElement = card._generateCard();
-  const photoList = document.querySelector('.photo__list');
-
-  photoList.append(cardElement); 
-});
-
 function enableValidation(settings) {
   const formList = Array.from(document.querySelectorAll(settings.formSelector));
   formList.forEach((formElement) => {
-    const formValidator = new FormValidator(formElement, settings);
+    const formValidator = new FormValidator(formElement, settings, openPopup);
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
@@ -130,9 +129,3 @@ enableValidation({
   inputErrorActiveClass: 'popup__container-input_error-active',
   submitButtonInactiveClass: 'popup__button_inactive',
 });
-
-
-import {initialCards} from './initial-cards.js';
-import FormValidator from './FormValidator.js';
-import Card from './Card.js';
-

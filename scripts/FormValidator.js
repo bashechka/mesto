@@ -1,6 +1,6 @@
 //ВАЛИДАЦИЯ
 export default class FormValidator {
-  constructor(formElement, settings) {
+  constructor(formElement, settings, openPopup) {
     this._formElement = formElement;
     this._formSelector = settings.formSelector;
     this._inputSelector = settings.inputSelector;
@@ -8,6 +8,8 @@ export default class FormValidator {
     this._inputErrorClass = settings.inputErrorClass;
     this._inputErrorActiveClass = settings.inputErrorActiveClass;
     this._submitButtonInactiveClass = settings.submitButtonInactiveClass;
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+    this._openPopup = openPopup;
   }
 
   _showInputError = (inputElement) => {
@@ -33,14 +35,24 @@ export default class FormValidator {
   }
 
   setEventListeners = () => {
-    const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
-    console.log(this._formElement.querySelectorAll(this._inputSelector));
+    const addPicButtonSelector = document.querySelector('.profile__add-button');
+    const popupAddPic = document.querySelector('.popup_type_add-pic');
+
+    //блокировка кнопки попапа на добавление новой карточки
+    addPicButtonSelector.addEventListener('click', () => {
+      const buttonElement = popupAddPic.querySelector('.popup__button');
+      buttonElement.classList.add('popup__button_inactive');
+      buttonElement.disabled = true;
+      this._openPopup(popupAddPic);
+    });
+
     const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
-    this._toggleButtonState(inputList, buttonElement);
-    inputList.forEach((inputElement) => {
+    
+    this._toggleButtonState(this._inputList, buttonElement);
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
-        this._toggleButtonState(inputList, buttonElement);
+        this._toggleButtonState(this._inputList, buttonElement);
       });
     });
   }
@@ -52,7 +64,6 @@ export default class FormValidator {
    }
 
    _toggleButtonState (inputList, buttonElement) {
-     console.log(this._hasInvalidInput(inputList));
     if (this._hasInvalidInput(inputList)) {
      buttonElement.classList.add(this._submitButtonInactiveClass);
      buttonElement.disabled = true;
