@@ -58,11 +58,11 @@ export default class Card {
     // const popupPhoto = document.querySelector('.popup_type_open-pic');
     // const pic = document.querySelector('.popup__photo');
     // const caption = document.querySelector('.popup__photo-caption');
-    const src = this._image.src;
-    pic.src = src;
-    const title = this._element.closest('.photo__list-item').querySelector('.photo__title');
-    caption.textContent = title.textContent;
-    pic.alt = title.textContent;
+    //const src = this._element.querySelector('.photo__list-image').src;
+    pic.src = this._link;
+    //const title = this._element.closest('.photo__list-item').querySelector('.photo__title');
+    caption.textContent = this._name;
+    pic.alt = this._name;
     this._openPopup(popupPhoto);
   }
 }
