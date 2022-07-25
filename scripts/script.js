@@ -24,15 +24,11 @@ const placeInput = popupAddPic.querySelector('.popup__container-input_type_place
 const linkInput = popupAddPic.querySelector('.popup__container-input_type_link');
    
 //функция закрытия попапа при нажатии Esc
-
 function closePopupEsc(evt) {
   if (evt.key === "Escape") {
-    popups.forEach((popup) => {
-      if (popup.classList.contains('popup_open')) {
-        closePopup(popup);
-      }
-    });
-  }
+    const popupElement = document.querySelector('.popup_open');
+    closePopup(popupElement);
+   }
 }
 
 //универсальные функции закрытия и открытия попапа
