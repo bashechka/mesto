@@ -1,0 +1,38 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "Проект \"Место\" представляет собой сайт, на котором можно сохранять и делиться фотограциями через персональный профиль.",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bashechka/mesto.git"
+  },
+  "author": "Varvara Korobkina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bashechka/mesto/issues"
+  },
+  "homepage": "https://github.com/bashechka/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "autoprefixer": "^10.4.8",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.12",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "postcss-loader": "^7.0.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
+  },
+  "dependencies": {
+    "core-js": "^3.24.1"
+  }
+}
