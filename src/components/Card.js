@@ -1,18 +1,19 @@
-import Popup from "./Popup.js";
-import PopupWithImage from "./PopupWithImage.js";
+import { data } from "autoprefixer";
+
 
 //создание карточки с загрузкой информации из массива + обработчики лайков и корзины удаления
 export default class Card {
-  constructor(name, link, handleCardClick) {
-    this._link = link;
-    this._name = name;
+  constructor(data, handleCardClick, handelDeletCard, handleLikeCard) {
+    this._data = data;
     this._element = this._createTemplateItem();
     this._likeButton = this._element.querySelector('.photo__like-button');
     this._image = this._element.querySelector('.photo__list-image');
     this._title = this._element.querySelector('.photo__title');
     this._deleteButton = this._element.querySelector('.photo__delete-button');
     this._handleCardClick = handleCardClick;
-    // this._popupWithImage = new PopupWithImage('.popup_type_open-pic', this._name, this._link);
+    this._countElement = this._element.querySelector('.photo__like-count');
+    this._handelDeletCard = handelDeletCard;
+    this._handleLikeCard = handleLikeCard;
   }
 
    //клонируем содержимое тега template
@@ -24,39 +25,65 @@ export default class Card {
       .cloneNode(true);
   }
 
-  _generateCard() {
+  generateCard() {
     // this._element = this._createTemplateItem();
     this._setEventlisteners();
     //наполняем содержимым
-    this._image.src = this._link;
-    this._title.textContent = this._name;
+    this._image.src = this._data.link;
+    this._title.textContent = this._data.name;
     //подтягиваем alt
-    this._image.alt = this._name;
- 
+    this._image.alt = this._data.name;
+    this._countElement.value = this._data.likes.length;
+
     return this._element;
   }
     
   _setEventlisteners() {
     //лайк
-    this._likeButton.addEventListener('click', this._activeLike);
+    this._likeButton.addEventListener('click', () => {
+      this._handleLikeCard(this);
+    });
 
     //корзина
-    this._deleteButton.addEventListener('click', this._deleteCard);
+    this._deleteButton.addEventListener('click', () => {
+      this._handelDeletCard(this);
+    });
 
     //попап с фото
     this._image.addEventListener('click', () => {
-      this._handleCardClick(this._name, this._link);
+      this._handleCardClick(this._data.name, this._data.link);
     });
   }
 
   //включение и выключение лайка
-  _activeLike = () => {
+  showActiveLike = (userId) => {
+    this._data.likes.forEach(like => {
+      if(like._id === userId) {
+        this.toggleLike();
+      }
+    });
+  }
+
+  toggleLike() {
     this._likeButton.classList.toggle('photo__like-button_active');
+    this._countElement.value = this._data.likes.length;
+  }
+
+  isLiked() {
+   return this._likeButton.classList.contains('photo__like-button_active');
   }
 
   //удаление карточки при клике на корзину 
   _deleteCard = () => {
     this._element.remove();
+  }
+
+  updateData(data) {
+    this._data = data;
+ }
+
+  hideDeleteButtun() {
+    this._deleteButton.style.visibility='hidden';
   }
 }
 

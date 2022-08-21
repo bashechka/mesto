@@ -13,6 +13,7 @@
 @import url(../blocks/popup/__container/__container_job-error/popup__container_job-error.css);
 @import url(../blocks/popup/__container/__container_place-error/popup__container_place-error.css);
 @import url(../blocks/popup/__container/__container_link-error/popup__container_link-error.css);
+@import url(../blocks/popup/__container/__container_avatar-link-error/popup__container_avatar-link-error.css);
 
 @import url(../blocks/popup/__container-heading/popup__container-heading.css);
 @import url(../blocks/popup/__container-inputs/popup__container-inputs.css);
@@ -21,6 +22,7 @@
 @import url(../blocks/popup/__container-input/_type/popup__container-input_type_job.css);
 @import url(../blocks/popup/__container-input/_type/popup__container-input_type_name.css);
 @import url(../blocks/popup/__container-input/_type/popup__container-input_type_link.css);
+@import url(../blocks/popup/__container-input/_type/popup__container-input_type_avatar-link.css);
 @import url(../blocks/popup/__container-input/_type/popup__container-input_type_place.css);
 @import url(../blocks/popup/__container-input/_type/popup__container-input_type_error.css);
 
@@ -32,10 +34,15 @@
 @import url(../blocks/popup/__photo/popup__photo.css);
 @import url(../blocks/popup/_type/popup_type_open-pic.css);
 
+@import url(../blocks/popup/__container-confirm-button/popup__container-confirm-button.css);
+@import url(../blocks/popup/__container-save-button-processing/popup__container-save-button-processing.css);
+
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
 
 @import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__avatar-edit-button/profile__avatar-edit-button.css);
+@import url(../blocks/profile/__wrapper/profile__wrapper.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__info-mode/profile__info-mode.css);
@@ -50,8 +57,10 @@
 @import url(../blocks/photo/__list-image/photo__list-image.css);
 @import url(../blocks/photo/__wrapper/photo__wrapper.css);
 @import url(../blocks/photo/__title/photo__title.css);
+@import url(../blocks/photo/__like-wrapper/photo__like-wrapper.css);
 @import url(../blocks/photo/__like-button/photo__like-button.css);
 @import url(../blocks/photo/__like-button/_active/photo__like-button_active.css);
+@import url(../blocks/photo/__like-count/photo__like-count.css);
 @import url(../blocks/photo/__delete-button/photo__delete-button.css);
 @import url(../blocks/photo/__delete-button/_active/photo__delete-button_active.css);
 

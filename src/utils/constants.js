@@ -54,7 +54,10 @@ export const placeInput = popupAddPic.querySelector('.popup__container-input_typ
 export const linkInput = popupAddPic.querySelector('.popup__container-input_type_link');
 export const profileButtonElement = document.querySelector('.profile__add-button');
 export const image = document.querySelector('#photo__list-item').content.querySelector('.photo__list-item').querySelector('.photo__list-image');
-console.log(image);
+export const avatarEditButtonElement = document.querySelector('.profile__avatar-edit-button');
+export const avatarInput = document.querySelector('.popup__container-input_type_avatar-link');
+
+
 export const settings = {  
   formSelector: '.popup__form',
   inputSelector: '.popup__container-input',
