@@ -28,3 +28,10 @@
     margin: 0px 0 25px 0;
  }
 }
+
+@media screen and (max-width: 320px) {
+  .popup__container-create-button {
+   
+    margin: 0px 0 45px 0;
+ }
+}

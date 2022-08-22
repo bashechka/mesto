@@ -4,167 +4,87 @@ export default class Api {
     }
 
   getCards() {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-48/cards', {
+    const promise =  fetch(`${this._options.baseUrl}/cards`, {
       method: 'GET',
-      headers: {
-        authorization: '0de73a47-ba0e-4616-b8f4-47dc11cfec5b',
-      }
+      headers: this._options.headers
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-    })
-      .catch((err) => {
-      console.log(err); // выведем ошибку в консоль
-    });
+    return this._checkResponse(promise);
 }
 
   getUserInfo() {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-48/users/me', {
+    const promise = fetch(`${this._options.baseUrl}/users/me`, {
       method: 'GET',
-      headers: {
-        authorization: '0de73a47-ba0e-4616-b8f4-47dc11cfec5b'
-        // 'Content-Type': 'application/json'
-      }
+      headers: this._options.headers
     })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err); // выведем ошибку в консоль
-    }); 
+    return this._checkResponse(promise);
   }
 
   updateUserInfo(name, about) {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-48/users/me', {
+    const promise =  fetch(`${this._options.baseUrl}/users/me`, {
       method: 'PATCH',
-      headers: {
-        authorization: '0de73a47-ba0e-4616-b8f4-47dc11cfec5b',
-        'Content-Type': 'application/json'
-    },
+      headers: this._options.headers,
       body: JSON.stringify({
         name: name,
         about: about
     })
   })
-  
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err); // выведем ошибку в консоль
-    }); 
+  return this._checkResponse(promise);
   }
 
   createNewCard(name, link) {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-48/cards', {
+    const promise = fetch(`${this._options.baseUrl}/cards`, {
         method: 'POST',
-        headers: {
-          authorization: '0de73a47-ba0e-4616-b8f4-47dc11cfec5b',
-          'Content-Type': 'application/json'
-      },
+        headers: this._options.headers,
         body: JSON.stringify({
           name: name,
           link: link
       })
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .catch((err) => {
-        console.log(err); // выведем ошибку в консоль
-      }); 
+    return this._checkResponse(promise);
   }
   
   setLike(cardId) {
-   return fetch(`https://mesto.nomoreparties.co/v1/cohort-48/cards/${cardId}/likes`, {
+    const promise =  fetch(`${this._options.baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
-      headers: {
-        authorization: '0de73a47-ba0e-4616-b8f4-47dc11cfec5b',
-        'Content-Type': 'application/json'
-    }
+      headers: this._options.headers
    })
-   .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
-  .catch((err) => {
-    console.log(err); // выведем ошибку в консоль
-  }); 
+   return this._checkResponse(promise);
 }
 
   deleteLike(cardId) {
-   return fetch(`https://mesto.nomoreparties.co/v1/cohort-48/cards/${cardId}/likes`, {
+    const promise = fetch(`${this._options.baseUrl}/cards/${cardId}/likes`, {
       method: 'DELETE',
-      headers: {
-        authorization: '0de73a47-ba0e-4616-b8f4-47dc11cfec5b',
-        'Content-Type': 'application/json'
-    }
+      headers: this._options.headers
    })
-   .then((res) => {
-    if (res.ok) {
-      return res.json();
-      
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-   })
-   .catch((err) => {
-    console.log(err); // выведем ошибку в консоль
-   }); 
+   return this._checkResponse(promise);
  }
 
  updateUserAvatar(avatarLink) {
- return fetch('https://mesto.nomoreparties.co/v1/cohort-48/users/me/avatar', {
+  const promise = fetch(`${this._options.baseUrl}/users/me/avatar`, {
     method: 'PATCH',
-    headers: {
-      authorization: '0de73a47-ba0e-4616-b8f4-47dc11cfec5b',
-      'Content-Type': 'application/json'
-  },
+    headers: this._options.headers,
     body: JSON.stringify({
      avatar: avatarLink
   })
 })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
-  .catch((err) => {
-    console.log(err); // выведем ошибку в консоль
-  }); 
- }
+  return this._checkResponse(promise);
+}
  
  deleteCard(cardId) {
-  return fetch(`https://mesto.nomoreparties.co/v1/cohort-48/cards/${cardId}`, {
+  const promise = fetch(`${this._options.baseUrl}/cards/${cardId}`, {
      method: 'DELETE',
-     headers: {
-       authorization: '0de73a47-ba0e-4616-b8f4-47dc11cfec5b',
-       'Content-Type': 'application/json'
-   }
+     headers: this._options.headers
  })
-   .then((res) => {
-     if (res.ok) {
-       return res.json();
-     }
-     return Promise.reject(`Ошибка: ${res.status}`);
-   })
-   .catch((err) => {
-     console.log(err); // выведем ошибку в консоль
-   }); 
+   return this._checkResponse(promise);
   }
-}
+
+  _checkResponse(promise) {
+    return promise.then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Ошибка: ${res.status}`);
+    }); 
+  }
+ }
 

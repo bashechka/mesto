@@ -13,9 +13,9 @@ import { data } from 'autoprefixer';
 
 //API
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-42',
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-48',
   headers: {
-    authorization: 'c56e30dc-2883-4270-a59e-b2f7bae969c6',
+    authorization: '0de73a47-ba0e-4616-b8f4-47dc11cfec5b',
     'Content-Type': 'application/json'
   }
 });
@@ -30,6 +30,10 @@ function createCard(data) {
   return card.generateCard();
 }
 
+function errorHandler(err) {
+  console.log(err); // выведем ошибку в консоль
+}
+
 const cardList = new Section ({
   items: initialCards,
   renderer: (item) => {
@@ -42,8 +46,8 @@ api.getUserInfo().then((data) => {
   api.getCards().then((data) => {
     cardList.setItems(data);
     cardList.renderItems();
-  });  
-});
+  }).catch(errorHandler);  
+}).catch(errorHandler);
   
 const popupAddPic = new PopupWithForm('.popup_type_add-pic', handlerAddPicFormSubmit);
 popupAddPic.setEventListeners();
@@ -62,6 +66,7 @@ editButton.addEventListener('click', () => {
 const popupUpdateAvatar = new PopupWithForm('.popup_type_update-avatar', handlerAvatarProfileFormSubmit);
 popupUpdateAvatar.setEventListeners();
 avatarEditButtonElement.addEventListener('click', () => {
+  formPopupUpdateAvatarValidator.toggleButtonState();
   popupUpdateAvatar.openPopup();
 });
 
@@ -73,15 +78,20 @@ function handleCardClick(name, link) {
   popupWithImage.openPopup();
 }
 
-function handelDeletCard(card) {
-  const popupConfirmDelete = new Popup('.popup_type_delete');
-  popupConfirmDelete._popupElement.querySelector('.popup__container-confirm-button').addEventListener('click', () => {
-   api.deleteCard(card._data._id).then(() => {
-    card._deleteCard();
+let deletingCard;
+const popupConfirmDelete = new Popup('.popup_type_delete');
+const popupConfirmDeleteButtonElement = popupConfirmDelete._popupElement.querySelector('.popup__container-confirm-button');
+popupConfirmDelete.setEventListeners();
+popupConfirmDeleteButtonElement.addEventListener('click', () => {
+  api.deleteCard(deletingCard._data._id).then(() => {
+    deletingCard._deleteCard();
     popupConfirmDelete.closePopup();
    })
-  });
-  popupConfirmDelete.setEventListeners();
+   .catch(errorHandler);
+});
+
+function handelDeletCard(card) {
+  deletingCard = card;
   popupConfirmDelete.openPopup();
 }
 
@@ -90,12 +100,14 @@ function handleLikeCard(card) {
     api.deleteLike(card._data._id).then((data) => {
       card.updateData(data);
       card.toggleLike();
-    });
+    })
+    .catch(errorHandler);
   } else {
     api.setLike(card._data._id).then((data) => {
       card.updateData(data);
       card.toggleLike();
-    });
+    })
+    .catch(errorHandler);
   }
 }
 
@@ -105,9 +117,10 @@ function handleProfileFormSubmit(formValues) {
   popupProfile.setLoading();
   api.updateUserInfo(formValues['form__item-name'], formValues['form__item-job']).then((data) => {
     userInfo.setUserInfo(data);
-    popupProfile.disableLoading();
     popupProfile.closePopup(popupProfile);
-  });
+  })
+  .finally(() => popupProfile.disableLoading())
+  .catch(errorHandler);
  
 }
 
@@ -118,6 +131,7 @@ function handlerAvatarProfileFormSubmit() {
     popupUpdateAvatar.disableLoading();
     popupUpdateAvatar.closePopup();
   })
+  .catch(errorHandler);
 }
 
 function handlerOpenPopup() {
@@ -131,7 +145,8 @@ function handlerOpenPopup() {
 function handlerAddPicFormSubmit(formValues) {
   api.createNewCard(formValues['form__item-place'], formValues['form__item-link']).then((item) => {
     cardList.addItemFirst(createCard(item));
-  });
+  })
+  .catch(errorHandler);
   popupAddPic.closePopup();
 }
 
