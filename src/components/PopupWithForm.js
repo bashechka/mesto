@@ -6,6 +6,8 @@ export default class PopupWithForm extends Popup {
         this._handlerPopupFormSubmit = handlerPopupFormSubmit;
         this._inputsList = this._popupElement.querySelectorAll('.popup__container-input');
         this._formElement = this._popupElement.querySelector('.popup__container');
+        this._submitElement = this._popupElement.querySelector('.popup__button');
+        // this._submitElementBtnText = this._submitElement.textContent;
     }
 
     //приватный метод, который собирает данные всех полей формы
@@ -18,16 +20,12 @@ export default class PopupWithForm extends Popup {
 
     }
 
-    //Перезаписывает родительский метод 
-    //Метод setEventListeners класса PopupWithForm должен не только
-    //добавлять обработчик клика иконке закрытия, но и добавлять обработчик сабмита формы
-
     setEventListeners = () => {
         super.setEventListeners();
         this._formElement.addEventListener('submit', (evt) => {
-            evt.preventDefault(); 
+            evt.preventDefault();
             this._handlerPopupFormSubmit(this._getInputValues());
-     });
+        });
     }
 
     closePopup() {
@@ -36,12 +34,19 @@ export default class PopupWithForm extends Popup {
 
     }
 
-//    openPopup() {
-//        super.openPopup();
-//        if (this._handlerOpenPopup !== undefined) {
-//         this._handlerOpenPopup();
-//      }
-//    }
-   
-  
+    // renderLoading(isLoading, loadingText = 'Сохранение...') {
+    //     if (isLoading) {
+    //         this._submitElementBtnText.textContent = loadingText;
+    //     } else {
+    //         this._submitElementBtnText.textContent = this._submitElementBtnText;
+    //     }
+    // }
+
+    setLoading() {
+        this._submitElement.textContent = this._submitElement.textContent + "...";
+    }
+
+    disableLoading() {
+        this._submitElement.textContent = this._submitElement.textContent.replace("...", "");
+    }
 }

@@ -1,66 +1,76 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Место</title>
 </head>
+
 <body class="page">
   <div class="popup popup_type_profile">
-      <form name="popup-profile" class="popup__container popup__form" novalidate>
-        <button type="button" class="popup__close-icon"></button>
-       <h2 class="popup__container-heading">Редактировать профиль</h2>
-       <fieldset class="popup__container-inputs">
-         <input type="text" id="popup__container_name" name="form__item-name" placeholder="Имя" class="popup__container-input popup__container-input_type_name" value="Жак-Ив Кусто" minlength="2" maxlength="40" required>
-         <span class="popup__container popup__container_name-error"></span>
-         <input type="text" id="popup__container_job" name="form__item-job" placeholder="О себе" class="popup__container-input popup__container-input_type_job" value="Исследователь океана" minlength="2" maxlength="200" required>
-         <span class="popup__container popup__container_job-error"></span>
-         <button type="submit" class="popup__button popup__container-save-button">Сохранить</button>
-       </fieldset>
-      </form>
+    <form name="popup-profile" class="popup__container popup__form" novalidate>
+      <button type="button" class="popup__close-icon"></button>
+      <h2 class="popup__container-heading">Редактировать профиль</h2>
+      <fieldset class="popup__container-inputs">
+        <input type="text" id="popup__container_name" name="form__item-name" placeholder="Имя"
+          class="popup__container-input popup__container-input_type_name" value="Жак-Ив Кусто" minlength="2"
+          maxlength="40" required>
+        <span class="popup__container popup__container_name-error"></span>
+        <input type="text" id="popup__container_job" name="form__item-job" placeholder="О себе"
+          class="popup__container-input popup__container-input_type_job" value="Исследователь океана" minlength="2"
+          maxlength="200" required>
+        <span class="popup__container popup__container_job-error"></span>
+        <button type="submit" class="popup__button popup__container-save-button">Сохранить</button>
+      </fieldset>
+    </form>
   </div>
   <div class="popup popup_type_add-pic">
     <form name="popup-add-pic" class="popup__container popup__form" novalidate>
       <button type="button" class="popup__close-icon"></button>
-     <h2 class="popup__container-heading">Новое место</h2>
-     <fieldset class="popup__container-inputs">
-       <input type="text" id="popup__container_place" name="form__item-place" placeholder="Название" class="popup__container-input popup__container-input_type_place" value="" minlength="2" maxlength="30" required>
-       <span class="popup__container popup__container_place-error"></span>
-       <input type="url" id="popup__container_link" name="form__item-link" placeholder="Ссылка на картинку" class="popup__container-input popup__container-input_type_link" value="" required>
-       <span class="popup__container popup__container_link-error"></span>
-       <button type="submit" class="popup__button popup__container-create-button">Создать</button>
-     </fieldset>
+      <h2 class="popup__container-heading">Новое место</h2>
+      <fieldset class="popup__container-inputs">
+        <input type="text" id="popup__container_place" name="form__item-place" placeholder="Название"
+          class="popup__container-input popup__container-input_type_place" value="" minlength="2" maxlength="30"
+          required>
+        <span class="popup__container popup__container_place-error"></span>
+        <input type="url" id="popup__container_link" name="form__item-link" placeholder="Ссылка на картинку"
+          class="popup__container-input popup__container-input_type_link" value="" required>
+        <span class="popup__container popup__container_link-error"></span>
+        <button type="submit" class="popup__button popup__container-create-button">Создать</button>
+      </fieldset>
     </form>
-</div>
-<div class="popup popup_type_open-pic">
-  <div name="popup-open-pic" class="popup__container">
-    <button type="button" class="popup__close-icon"></button>
-    <img class="popup__photo" src="<%=require('./images/no_image.png')%>" alt="Фотография местности">
-    <p class="popup__photo-caption"></p>
   </div>
-</div>
-<div class="popup popup_type_delete">
-  <div name="popup-delete" class="popup__container">
-    <button type="button" class="popup__close-icon"></button>
-    <h2 class="popup__container-heading">Вы уверены?</h2>
-    <button type="submit" class="popup__button popup__container-confirm-button">Да</button>
+  <div class="popup popup_type_open-pic">
+    <div name="popup-open-pic" class="popup__container">
+      <button type="button" class="popup__close-icon"></button>
+      <img class="popup__photo" src="<%=require('./images/no_image.png')%>" alt="Фотография местности">
+      <p class="popup__photo-caption"></p>
+    </div>
   </div>
-</div>
-<div class="popup popup_type_update-avatar">
-  <form name="popup-update-avatar" class="popup__container popup__form" novalidate>
-    <button type="button" class="popup__close-icon"></button>
-   <h2 class="popup__container-heading">Обновить аватар</h2>
-   <fieldset class="popup__container-inputs">
-     <input type="url" id="popup__container_avatar-link" name="form__item-avatar-link" placeholder="Ссылка на аватар" class="popup__container-input popup__container-input_type_avatar-link" value="" required>
-     <span class="popup__container popup__container_avatar-link-error"></span>
-     <button type="submit" class="popup__button popup__container-create-button">Сохранить</button>
-   </fieldset>
-  </form>
-</div>
-<header class="header">
-  <div class="header__logo"></div>
-</header>
+  <div class="popup popup_type_delete">
+    <div name="popup-delete" class="popup__container">
+      <button type="button" class="popup__close-icon"></button>
+      <h2 class="popup__container-heading">Вы уверены?</h2>
+      <button type="submit" class="popup__button popup__container-confirm-button">Да</button>
+    </div>
+  </div>
+  <div class="popup popup_type_update-avatar">
+    <form name="popup-update-avatar" class="popup__container popup__form" novalidate>
+      <button type="button" class="popup__close-icon"></button>
+      <h2 class="popup__container-heading">Обновить аватар</h2>
+      <fieldset class="popup__container-inputs">
+        <input type="url" id="popup__container_avatar-link" name="form__item-avatar-link" placeholder="Ссылка на аватар"
+          class="popup__container-input popup__container-input_type_avatar-link" value="" required>
+        <span class="popup__container popup__container_avatar-link-error"></span>
+        <button type="submit" class="popup__button popup__container-create-button">Сохранить</button>
+      </fieldset>
+    </form>
+  </div>
+  <header class="header">
+    <div class="header__logo"></div>
+  </header>
   <main class="main-content">
     <section class="profile">
       <div class="profile__wrapper">
@@ -68,17 +78,17 @@
         <button class="profile__avatar-edit-button"></button>
       </div>
       <div class="profile__info">
-         <div class="profile__info-mode">
+        <div class="profile__info-mode">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button type="button" class="profile__edit-button"></button>
-         </div>
+        </div>
         <p class="profile__job">Исследователь океана</p>
       </div>
       <button type="button" class="profile__add-button"></button>
     </section>
     <section class="photo">
       <ul class="photo__list">
-      </ul> 
+      </ul>
     </section>
   </main>
   <footer class="footer">
@@ -90,12 +100,13 @@
       <img class="photo__list-image" alt="Храм в горах на фоне леса">
       <div class="photo__wrapper">
         <h2 class="photo__title"></h2>
-       <div class="photo__like-wrapper">
-        <button type="button" class="photo__like-button"></button>
-        <input type="text" class="photo__like-count" name="photo__like-count" value="0">
-       </div>
+        <div class="photo__like-wrapper">
+          <button type="button" class="photo__like-button"></button>
+          <input type="text" class="photo__like-count" name="photo__like-count" value="0">
+        </div>
       </div>
     </li>
-   </template>
+  </template>
 </body>
+
 </html>

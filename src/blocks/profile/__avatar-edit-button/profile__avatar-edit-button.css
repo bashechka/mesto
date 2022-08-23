@@ -11,7 +11,7 @@
     left: 65px; */
     transition: opacity .3s;
     background-repeat: no-repeat;
-    z-index: 999;
+    z-index: 900;
     padding: 0;
     margin: 0;
 }

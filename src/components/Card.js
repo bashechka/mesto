@@ -3,9 +3,10 @@ import { data } from "autoprefixer";
 
 //создание карточки с загрузкой информации из массива + обработчики лайков и корзины удаления
 export default class Card {
-  constructor(data, handleCardClick, handelDeletCard, handleLikeCard) {
+  constructor(templateSelector, data, handleCardClick, handelDeletCard, handleLikeCard) {
     this._data = data;
-    this._element = this._createTemplateItem();
+    this._templateElement = document.querySelector(templateSelector).content.querySelector('.photo__list-item');
+    this._element = this._templateElement.cloneNode(true);
     this._likeButton = this._element.querySelector('.photo__like-button');
     this._image = this._element.querySelector('.photo__list-image');
     this._title = this._element.querySelector('.photo__title');
@@ -14,15 +15,7 @@ export default class Card {
     this._countElement = this._element.querySelector('.photo__like-count');
     this._handelDeletCard = handelDeletCard;
     this._handleLikeCard = handleLikeCard;
-  }
-
-   //клонируем содержимое тега template
-  _createTemplateItem() {
-    return document
-      .querySelector('#photo__list-item')
-      .content
-      .querySelector('.photo__list-item')
-      .cloneNode(true);
+    
   }
 
   generateCard() {
@@ -37,7 +30,7 @@ export default class Card {
 
     return this._element;
   }
-    
+
   _setEventlisteners() {
     //лайк
     this._likeButton.addEventListener('click', () => {
@@ -58,7 +51,7 @@ export default class Card {
   //включение и выключение лайка
   showActiveLike = (userId) => {
     this._data.likes.forEach(like => {
-      if(like._id === userId) {
+      if (like._id === userId) {
         this.toggleLike();
       }
     });
@@ -70,21 +63,30 @@ export default class Card {
   }
 
   isLiked() {
-   return this._likeButton.classList.contains('photo__like-button_active');
+    return this._likeButton.classList.contains('photo__like-button_active');
   }
 
   //удаление карточки при клике на корзину 
-  _deleteCard = () => {
+  deleteCard = () => {
     this._element.remove();
   }
 
   updateData(data) {
     this._data = data;
- }
+  }
 
   hideDeleteButtun() {
-    this._deleteButton.style.visibility='hidden';
+    this._deleteButton.style.visibility = 'hidden';
   }
+
+  getCardId() {
+    return this._data._id;
+  }
+
+  getOwnerId() {
+    return this._data.owner._id;
+  }
+  
 }
 
 
