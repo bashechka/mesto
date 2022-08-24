@@ -3,7 +3,7 @@ import { initialCards } from '../utils/constants.js';
 import FormValidator from '../components/FormValidator.js';
 import PopupWithImage from '../components/PopupWithImage';
 import Card from '../components/Card.js';
-import { photoListSelector, editButton, profileButtonElement, avatarInput, nameInput, jobInput, settings, avatarEditButtonElement } from '../utils/constants.js';
+import { photoListSelector, editButton, profileButtonElement, nameInput, jobInput, settings, avatarEditButtonElement } from '../utils/constants.js';
 import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import Userinfo from '../components/UserInfo.js';
@@ -22,7 +22,7 @@ const api = new Api({
 });
 
 function createCard(data) {
-  const card = new Card('#photo__list-item', data, handleCardClick, handelDeletCard, handleLikeCard);
+  const card = new Card('#photo__list-item', data, handleCardClick, handleDeletCard, handleLikeCard);
   const userId = userInfo.getUserInfo().userId;
   card.showActiveLike(userId);
   if (card.getOwnerId() !== userId) {
@@ -31,7 +31,7 @@ function createCard(data) {
   return card.generateCard();
 }
 
-function handlerError(err) {
+function handleError(err) {
   console.log(err); // выведем ошибку в консоль
 }
 
@@ -47,13 +47,13 @@ api.getUserInfo().then((data) => {
   api.getCards().then((data) => {
     cardList.setItems(data);
     cardList.renderItems();
-  }).catch(handlerError);
-}).catch(handlerError);
+  }).catch(handleError);
+}).catch(handleError);
 
-const popupAddPic = new PopupWithForm('.popup_type_add-pic', handlerAddPicFormSubmit);
+const popupAddPic = new PopupWithForm('.popup_type_add-pic', handleAddPicFormSubmit);
 popupAddPic.setEventListeners();
 profileButtonElement.addEventListener('click', () => {
-  formAddPicValidator.toggleButtonState();
+
   popupAddPic.openPopup();
   formAddPicValidator.resetValidation();
 });
@@ -62,14 +62,13 @@ const popupProfile = new PopupWithForm('.popup_type_profile', handleProfileFormS
 popupProfile.setEventListeners();
 editButton.addEventListener('click', () => {
   popupProfile.openPopup();
-  handlerOpenPopup();
+  handleOpenPopup();
   formProfileValidator.resetValidation();
 });
 
-const popupUpdateAvatar = new PopupWithForm('.popup_type_update-avatar', handlerAvatarProfileFormSubmit);
+const popupUpdateAvatar = new PopupWithForm('.popup_type_update-avatar', handleAvatarProfileFormSubmit);
 popupUpdateAvatar.setEventListeners();
 avatarEditButtonElement.addEventListener('click', () => {
-  formPopupUpdateAvatarValidator.toggleButtonState();
   popupUpdateAvatar.openPopup();
   formPopupUpdateAvatarValidator.resetValidation();
 });
@@ -78,21 +77,20 @@ const popupWithImage = new PopupWithImage('.popup_type_open-pic');
 popupWithImage.setEventListeners();
 
 function handleCardClick(name, link) {
-  popupWithImage.setImageContent(name, link);
-  popupWithImage.openPopup();
+  popupWithImage.openPopup(name, link);
 }
 
-const popupConfirmDelete = new PopupConfirmation('.popup_type_delete', handlerConfirmPopupFormSubmit);
+const popupConfirmDelete = new PopupConfirmation('.popup_type_delete', handleConfirmPopupFormSubmit);
 popupConfirmDelete.setEventListeners();
 
-function handlerConfirmPopupFormSubmit(card) {
+function handleConfirmPopupFormSubmit(card) {
   api.deleteCard(card.getCardId()).then(() => {
     card.deleteCard();
     popupConfirmDelete.closePopup();
   })
-    .catch(handlerError);
+    .catch(handleError);
 }
-function handelDeletCard(card) {
+function handleDeletCard(card) {
   popupConfirmDelete.setTarget(card);
   popupConfirmDelete.openPopup();
 }
@@ -103,13 +101,13 @@ function handleLikeCard(card) {
       card.updateData(data);
       card.toggleLike();
     })
-      .catch(handlerError);
+      .catch(handleError);
   } else {
     api.setLike(card.getCardId()).then((data) => {
       card.updateData(data);
       card.toggleLike();
     })
-      .catch(handlerError);
+      .catch(handleError);
   }
 }
 
@@ -120,23 +118,23 @@ function handleProfileFormSubmit(formValues) {
   api.updateUserInfo(formValues['form__item-name'], formValues['form__item-job'])
     .then((data) => {
       userInfo.setUserInfo(data);
-      popupProfile.closePopup(popupProfile);
+      popupProfile.closePopup();
     })
     .finally(() => popupProfile.disableLoading())
-    .catch(handlerError);
+    .catch(handleError);
 }
 
-function handlerAvatarProfileFormSubmit(formValues) {
+function handleAvatarProfileFormSubmit(formValues) {
   popupUpdateAvatar.setLoading();
   api.updateUserAvatar(formValues['form__item-avatar-link']).then((data) => {
     userInfo.setUserInfo(data);
     popupUpdateAvatar.closePopup();
   })
     .finally(() => popupUpdateAvatar.disableLoading())
-    .catch(handlerError);
+    .catch(handleError);
 }
 
-function handlerOpenPopup() {
+function handleOpenPopup() {
   const infoUser = userInfo.getUserInfo();
   nameInput.value = infoUser.name;
   jobInput.value = infoUser.job;
@@ -144,15 +142,16 @@ function handlerOpenPopup() {
 
 //добавление новой карточки через форму
 
-function handlerAddPicFormSubmit(formValues) {
+function handleAddPicFormSubmit(formValues) {
   popupAddPic.setLoading();
   api.createNewCard(formValues['form__item-place'], formValues['form__item-link'])
     .then((item) => {
       cardList.addItemFirst(createCard(item));
+
       popupAddPic.closePopup();
     })
     .finally(() => popupAddPic.disableLoading())
-    .catch(handlerError);
+    .catch(handleError);
 }
 
 const formProfileValidator = new FormValidator("form[name='popup-profile']", settings);

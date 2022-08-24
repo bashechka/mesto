@@ -1,9 +1,9 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-    constructor(popupSelector, handlerPopupFormSubmit) {
+    constructor(popupSelector, handlePopupFormSubmit) {
         super(popupSelector);
-        this._handlerPopupFormSubmit = handlerPopupFormSubmit;
+        this._handlePopupFormSubmit = handlePopupFormSubmit;
         this._inputsList = this._popupElement.querySelectorAll('.popup__container-input');
         this._formElement = this._popupElement.querySelector('.popup__container');
         this._submitElement = this._popupElement.querySelector('.popup__button');
@@ -24,7 +24,7 @@ export default class PopupWithForm extends Popup {
         super.setEventListeners();
         this._formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            this._handlerPopupFormSubmit(this._getInputValues());
+            this._handlePopupFormSubmit(this._getInputValues());
         });
     }
 
@@ -34,6 +34,7 @@ export default class PopupWithForm extends Popup {
 
     }
 
+    //оставляю код для себя, тк хочу еще с ним поработать
     // renderLoading(isLoading, loadingText = 'Сохранение...') {
     //     if (isLoading) {
     //         this._submitElementBtnText.textContent = loadingText;

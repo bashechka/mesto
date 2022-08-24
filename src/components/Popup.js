@@ -1,7 +1,6 @@
 export default class Popup {
   constructor(popupSelector) {
     this._popupElement = document.querySelector(popupSelector);
-
   }
 
   //функция закрытия попапа при нажатии Esc
@@ -10,7 +9,6 @@ export default class Popup {
       this.closePopup();
     }
   }
-
 
   //универсальные функции закрытия и открытия попапа
   openPopup() {

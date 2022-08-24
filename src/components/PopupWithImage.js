@@ -8,7 +8,7 @@ export default class PopupWithImage extends Popup {
   }
 
   //попап с фото: открытие и закрытие
-  setImageContent(name, link) {
+  openPopup(name, link) {
     super.openPopup();
     this._picElement.src = link;
     this._captionElement.textContent = name;
